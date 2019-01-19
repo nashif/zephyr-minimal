@@ -7,12 +7,12 @@ fi
 arches="x86 arm"
 boards="x86/qemu_x86 arm/mps2_an385"
 socs="arm/arm x86/ia32"
-subsys="logging random debug cpp"
+subsys="logging random debug cpp power"
 
 find ${zephyr_root} -maxdepth 1 -type f -exec cp {} . \;
 cp -a ${zephyr_root}/{cmake,scripts,dts,include,kernel,misc} .
 
-sed  -i "s/add_subdirectory(ext)/#add_subdirectory(ext)/" CMakeLists.txt
+#sed  -i "s/add_subdirectory(ext)/#add_subdirectory(ext)/" CMakeLists.txt
 sed  -i "s/add_subdirectory(samples)/#add_subdirectory(samples)/" CMakeLists.txt
 sed  -i "s/add_subdirectory(tests)/#add_subdirectory(tests)/" CMakeLists.txt
 
